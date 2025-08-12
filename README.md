@@ -1,69 +1,77 @@
-# React + TypeScript + Vite
+# Sun Simulator React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![CI/CD Pipeline](https://github.com/kzhub/sunlight_stimulator/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/kzhub/sunlight_stimulator/actions/workflows/ci-cd.yml)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://kzhub.github.io/sunlight_stimulator/)
 
-Currently, two official plugins are available:
+React + TypeScript + Viteで作成された3D太陽位置シミュレーター
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌞 デモ
 
-## Expanding the ESLint configuration
+**[GitHub Pages でライブデモを確認](https://kzhub.github.io/sunlight_stimulator/)**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 機能
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- 🌍 **3D太陽位置シミュレーション** - React Three Fiberによるリアルな3D表示
+- 🕐 **時間制御** - スライダーで時刻を調整（0-24時間）
+- 🌸 **季節選択** - 春夏秋冬による太陽位置の変化
+- 🗾 **日本5都市対応** - 東京・大阪・福岡・札幌・那覇
+- 📱 **レスポンシブデザイン** - デスクトップ・モバイル対応
+- 🏢 **リアルな3D要素** - 都市別建物、方位コンパス、人物モデル
+- 📊 **詳細な太陽データ** - 高度・方位角・影の長さ・日照強度
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 技術スタック
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **フレームワーク**: React 19, TypeScript
+- **3D**: React Three Fiber, Three.js, Drei
+- **ビルド**: Vite
+- **テスト**: Vitest, Testing Library
+- **CI/CD**: GitHub Actions
+- **デプロイ**: GitHub Pages
+
+## 開発
+
+```bash
+# 開発サーバー起動
+npm run dev
+
+# テスト実行
+npm run test
+
+# カバレッジ付きテスト
+npm run test:coverage
+
+# Lint
+npm run lint
+
+# ビルド
+npm run build
+
+# プレビュー
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## CI/CD
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+GitHub Actionsによる自動化:
+- ✅ コード品質チェック（ESLint）
+- ✅ 型チェック（TypeScript）
+- ✅ ユニットテスト実行（37テスト）
+- ✅ カバレッジレポート生成
+- 🚀 GitHub Pagesへの自動デプロイ
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## アーキテクチャ
+
 ```
+src/
+├── components/
+│   ├── Controls/       # UI制御コンポーネント
+│   ├── Scene/          # 3Dシーンコンポーネント
+│   └── InfoPanel/      # 情報表示パネル
+├── hooks/              # カスタムフック
+├── utils/              # 太陽位置計算ユーティリティ
+└── test/               # テスト設定
+```
+
+## ライセンス
+
+MIT License
